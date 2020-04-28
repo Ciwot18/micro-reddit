@@ -1,0 +1,19 @@
+<h1>Here's the list of all the posts!</h1>
+
+<ul id="posts">
+    <% @posts.each do |post| %>
+    <% id = nil%>
+    <% @users = User.all %>
+    <% @users.each do |x| %>
+    <% x.username==post.username ? id = x : id = 1%>
+    <% end %>
+        <li>
+        <%= link_to post.title, post_path(post) %>
+        <p class="author"><%= link_to post.username, user_path(User.find(2))%></p>
+        </li>
+    <% end %>
+</ul>
+
+<%= link_to "Create a New Post", new_post_path %>
+<%= link_to "Create a New User", new_user_path %>
+<%= link_to "See the existing User", users_path %>

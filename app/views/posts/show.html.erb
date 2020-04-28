@@ -1,0 +1,10 @@
+<h1><%= @post.title %></h1>
+<div class="bodytext">
+    <p><%= @post.body %></p>
+</div>
+<div class="postauthor">
+    <p><%= @post.username %></p>
+</div>
+<%= link_to "<< Back to Users List", posts_path %>
+<%= link_to "Edit Post", edit_post_path(@post) %>
+<%= link_to "Delete Post", post_path(@post), method: :delete, data: {confirm: "Really delete the article?"} %>
