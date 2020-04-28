@@ -1,0 +1,7 @@
+<h1>User Informations</h1>
+<p><%= @user.name %></p>
+<p><%= @user.email %></p>
+<p><%= @user.username %></p>
+<%= link_to "<< Back to Users List", users_path %>
+<%= link_to "delete", user_path(@user), method: :delete , data: {confirm: "Really delete the article?"}%>
+<%= link_to "edit", edit_user_path(@user)%>
