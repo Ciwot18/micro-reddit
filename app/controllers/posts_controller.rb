@@ -4,7 +4,14 @@ class PostsController < ApplicationController
     end
 
     def create
-        @post = Post.create(post_params)
+        @post = Post.new(post_params)
+        @users = User.all
+        @users.each do |x|
+            if x.username==@post.username
+                @post.user_id = x.id
+            end
+        end
+        @post.save
         redirect_to posts_path(@post)
     end
 
